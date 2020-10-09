@@ -1,5 +1,6 @@
 from flask import Flask
 
+
 app = Flask(__name__)
 
 
@@ -8,6 +9,7 @@ def index():
     webpage = \
         stylesheet + \
         header() + \
+        kalkulator() + \
         body() + \
         footer() 
     return webpage
@@ -27,9 +29,19 @@ def header():
             Det finnes mange gode grafiske verktøy som gjør git lettere,
             f.eks. GitHub desktop, git kraken, sourcetree, osv.</br>
         <p>
-        
+        <br/>
         <hr/>
     '''
+    
+def kalkulator():
+    w = 100000
+    r = 0.10
+
+    return '<h2>Hvis du tjener ' + str(w) + \
+        ' må du betale ' + str(w * r) + ' i skatt' + \
+        ' og sitter igjen med ' + str(w - w*r) + '.</h2>'
+
+
 
 def body():
     return '''
@@ -41,6 +53,7 @@ def body():
             <a href="https://www.atlassian.com/git/tutorials/what-is-version-control">Atlassian</a>
             har en fantastisk guide, les denne.<br/>
         </p>
+        <br/>
 
         <hr/>
 
@@ -62,7 +75,6 @@ def body():
         <img src="https://wac-cdn.atlassian.com/dam/jcr:86eba9ec-9391-45ea-800a-948cec1f2ed7/Branch-2.png?cdnVersion=1287"/>
         <img src="https://wac-cdn.atlassian.com/dam/jcr:83323200-3c57-4c29-9b7e-e67e98745427/Branch-1.png?cdnVersion=1287"/>
 
-        
         <hr/>
     '''
 
